@@ -70,4 +70,3 @@ else if  ((playerSelection = "rock") && (computerSelection = "scissors")) {
 else {
     console.log("Please input rock, paper or scissors.")
 }
-}
