@@ -1,3 +1,4 @@
+//declaring all i need
 const buttons = document.querySelectorAll('.button');
 const play = ['rock', 'paper', 'scissors'];
 const rockBtn = document.querySelector('#rock');
@@ -6,28 +7,34 @@ const scissorsBtn = document.querySelector('#scissors');
 const result = document.querySelector('#result');
 const playerScore = document.querySelector('#player-score');
 const PCScore = document.querySelector('#pc-score');
+const enterLink = document.querySelector('.enter_link');
+const splashScreen = document.querySelector('.splashscreen');
 let computerSelection = computerPlay(play);
 let pc = 0;
 let player = 0;
 let playerSelection;
 
-const enterLink = document.querySelector('.enter_link');
-const splashScreen = document.querySelector('.splashscreen');
-
+//Splashscreen
 enterLink.addEventListener('click', () => {
     splashScreen.style.transition = '1.5s';
     splashScreen.style.opacity = '0';
     splashScreen.style.visibility = 'hidden';
 });
 
+//Button Eventlistener that calls Function getResult
 buttons.forEach((button) => {
     button.addEventListener('click', getResult);
 });
 
+//Function for Computer Choice
 function computerPlay(play) {
     return play[Math.floor(Math.random() * play.length)];
 }
 
+//Function that determines the Result of the game by determining the player-choice
+//then evaluating the player-choice against the computer-choice by playing a round
+//then printing the result-text and adding up the score
+//at the end checking if there is a winner
 function getResult(e) {
     if (e.target.id == 'rock') {
         playerSelection = 'rock';
@@ -44,6 +51,7 @@ function getResult(e) {
     winner();
 }
 
+//Function that determines the winner and disables the buttons at the end
 function winner() {
     if (player === 5 || pc === 5) {
         rockBtn.setAttribute('disabled', 'disabled');
@@ -59,6 +67,7 @@ function winner() {
     }
 }
 
+//Function that plays one round
 function playRound() {
     if (playerSelection == computerSelection) {
         return 'Its a tie! Try harder!';
