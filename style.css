@@ -102,3 +102,9 @@ div {
     font-size: 20px;
     font-family: sans-serif;
 }
+footer {
+    display: flex;
+    color: #f9fcfb;
+    justify-content: center;
+    padding: 20px;
+}
